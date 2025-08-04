@@ -1,0 +1,220 @@
+/* Reset and base styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 50px;
+  min-height: 100vh;
+  background: linear-gradient(to right, #1b0036, #020c33);
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Stars background */
+.stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: transparent;
+  box-shadow:
+    10px 20px 1px 1px #fff,
+    50px 80px 2px 2px #a6c1ff,
+    150px 40px 1.5px 1.5px #d0d9ff,
+    200px 200px 1px 1px #fff,
+    300px 150px 2px 2px #c9d1ff,
+    400px 80px 1.2px 1.2px #fff,
+    600px 300px 1px 1px #a6c1ff,
+    700px 400px 2px 2px #d0d9ff,
+    800px 250px 1.5px 1.5px #fff,
+    900px 100px 1px 1px #c9d1ff;
+  animation: twinkle 3s infinite alternate;
+}
+
+/* Twinkle animation */
+@keyframes twinkle {
+  0%   {opacity: 0.7;}
+  50%  {opacity: 1;}
+  100% {opacity: 0.7;}
+}
+
+/* Main container styling */
+.container {
+  background: #2a0845cc;
+  padding: 40px;
+  border-radius: 15px;
+  width: 75%;
+  max-width: 700px;
+  box-shadow: 0 0 20px rgba(0, 0, 255, 0.3);
+  z-index: 10;
+  position: relative;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #a6c1ff;
+}
+
+/* Input section */
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background-color: #4b0c73;
+  color: white;
+}
+
+input[type="text"]::placeholder {
+  color: #ccc;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Task list styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+  margin-bottom: 10px;
+  background: #3c0f5b;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.task-item span {
+  flex: 1;
+  font-size: 18px;
+  transition: color 0.3s ease, text-decoration 0.4s ease;
+  word-break: break-word;
+}
+
+.task-item.done span {
+  text-decoration: line-through;
+  color: #999;
+  animation: fadeStrike 0.4s ease forwards;
+}
+
+@keyframes fadeStrike {
+  0% {
+    color: white;
+    text-decoration-color: transparent;
+  }
+  100% {
+    color: #999;
+    text-decoration-color: #999;
+  }
+}
+
+.task-item button {
+  background-color: #5a27cc;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 8px;
+}
+
+.task-item button:hover {
+  background-color: #7a3cf5;
+}
+
+/* Status */
+.status {
+  margin-top: 30px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  color: #a6c1ff;
+}
+
+/* Clear all section */
+.clear-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#clearAllBtn {
+  background-color: #cc2244;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#clearAllBtn:hover {
+  background-color: #ff4455;
+}
+
+/* The shining big moon */
+.moon {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at center, #f0e9d2, #a49982);
+  border-radius: 50%;
+  box-shadow:
+    0 0 20px 10px rgba(240, 233, 210, 0.5),
+    0 0 40px 20px rgba(255, 255, 255, 0.2);
+  animation: moonGlow 3s infinite ease-in-out;
+  z-index: 5;
+  filter: drop-shadow(0 0 10px #a6c1ff);
+}
+
+/* Moon glow animation */
+@keyframes moonGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 20px 10px rgba(240, 233, 210, 0.5),
+      0 0 40px 20px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px 15px rgba(240, 233, 210, 0.7),
+      0 0 60px 30px rgba(255, 255, 255, 0.4);
+  }
+}
